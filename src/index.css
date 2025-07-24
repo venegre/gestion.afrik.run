@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Amélioration de la lisibilité sur mobile */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl font-bold tracking-tight sm:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl font-semibold tracking-tight sm:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg font-semibold tracking-tight;
+  }
+
+  h6 {
+    @apply text-base font-semibold tracking-tight;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  small {
+    @apply text-sm;
+  }
+
+  /* Amélioration des inputs sur mobile */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea {
+    @apply appearance-none;
+    font-size: 16px; /* Empêche le zoom automatique sur iOS */
+  }
+
+  /* Amélioration du touch sur mobile */
+  button, 
+  [role="button"],
+  a {
+    @apply select-none touch-manipulation;
+  }
+}
+
+@layer components {
+  /* Composants réutilisables adaptés au mobile */
+  .mobile-safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-header {
+    @apply sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between;
+  }
+
+  .mobile-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 mobile-safe-area;
+  }
+
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  .mobile-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden;
+  }
+
+  .mobile-input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200;
+  }
+
+  .mobile-button {
+    @apply w-full flex justify-center items-center px-4 py-3 rounded-xl font-medium transition-all duration-200 transform active:scale-95;
+  }
+
+  .mobile-button-primary {
+    @apply mobile-button bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+
+  .mobile-button-secondary {
+    @apply mobile-button border border-gray-300 bg-white text-gray-700 hover:bg-gray-50;
+  }
+
+  .mobile-list {
+    @apply divide-y divide-gray-200;
+  }
+
+  .mobile-list-item {
+    @apply px-4 py-3 hover:bg-gray-50 transition-colors duration-200;
+  }
+
+  .mobile-search {
+    @apply relative flex-1;
+  }
+
+  .mobile-search-input {
+    @apply mobile-input pl-10;
+  }
+
+  .mobile-search-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Utilitaires pour le mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .touch-callout-none {
+    -webkit-touch-callout: none;
+  }
+
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Amélioration du défilement sur mobile */
+  .momentum-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Empêcher le pull-to-refresh sur mobile */
+  .overscroll-none {
+    overscroll-behavior: none;
+  }
+}
